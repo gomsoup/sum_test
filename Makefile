@@ -1,12 +1,10 @@
 #Makefile
-all: sum_test
+sum_test: sum.o main.o
+	gcc -o sum_test sum.o main.o
 
-sum_test: main.o sum.o
-	g++ -o sum_test main.o sum.o
+sum.o: sum.cpp sum.h
 
-main.o:	sum.h main.cpp
-
-sum.o: sum.h sum.cpp
+main.o: main.cpp sum.h
 
 clean:
 	rm -f sum_test
